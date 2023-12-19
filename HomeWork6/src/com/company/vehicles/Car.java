@@ -19,6 +19,9 @@ public class Car {
         this.driver = driver;
         this.engine = engine;
     }
+    public Car(){
+
+    }
 
     public String getCarBrand() {return carBrand;}
     public void setCarBrand(String carBrand) {this.carBrand = carBrand;}
@@ -65,13 +68,11 @@ public class Car {
     @Override
     public String toString(){
 
-        return "Информация об автомобиле:" +
-                " \n" + "Бренд авто - " + carBrand +"\n" + "Класс авто - " + carClass + "\n" +
-                "вес авто - " + weight + "\n" +
+        return "Информация об автомобиле:\n" +
+                "Бренд авто - " + carBrand +"\n" + "Класс авто - " + carClass + "\n" +
+                "вес авто - " + weight +  "\n" + driver + "\n"+ engine;
 
-                "\nВодитель: \nФИО - " + driver.getFullName() + "\nстаж вождения - " + driver.getDriveExp() + " лет\n" +
 
-                "\nДвигатель:\nпроизводитель - " + engine.getManufacturer() + "\nмощность - " +  engine.getPower() + " сил";
     }
 
 

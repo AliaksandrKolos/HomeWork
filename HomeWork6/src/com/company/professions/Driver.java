@@ -10,6 +10,10 @@ public class Driver {
         this.driveExp = driveExp;
     }
 
+    public Driver(){
+
+    }
+
 
     public String getFullName() {
         return fullName;
@@ -25,5 +29,10 @@ public class Driver {
 
     public void setDriveExp(int driveExp) {
         this.driveExp = driveExp;
+    }
+
+    @Override
+    public String toString() {
+        return "Водитель: \n" + "ФИО - " + fullName + "\ncтаж вождения - " + driveExp + " лет";
     }
 }

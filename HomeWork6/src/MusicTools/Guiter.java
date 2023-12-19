@@ -4,6 +4,14 @@ public class Guiter implements Instrument {
 
     private int countString = 6;
 
+    public Guiter(int countString) {
+        this.countString = countString;
+    }
+
+    public Guiter(){
+
+    }
+
     public int getCountString() {
         return countString;
     }

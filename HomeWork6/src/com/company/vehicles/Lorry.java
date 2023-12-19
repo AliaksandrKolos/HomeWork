@@ -12,15 +12,16 @@ public class Lorry extends Car{
         this.capacityBody = capacityBody;
     }
 
+    public Lorry(){
+
+    }
+
     @Override
     public String toString(){
 
-        return "Информация об автомобиле:" +
-                " \n" + "Бренд авто - " + getCarBrand() +"\n" + "Класс авто - " + getCarClass() + "\n" +
-                "вес авто - " + getWeight() + "\n" + "грузоподъёмность - " + capacityBody + " тонн" +
-
-                "\nВодитель: \nФИО - " + getDriver().getFullName() + "\nстаж вождения - " + getDriver().getDriveExp() + " лет\n" +
-
-                "\nДвигатель:\nпроизводитель - " + getEngine().getManufacturer() + "\nмощность - " +  getEngine().getPower() + " сил";
+        return "Информация об автомобиле:\n" +
+                "Бренд авто - " + super.getCarBrand() + "\nКласс авто - " + super.getCarClass() +
+                "\nвес авто - " + super.getWeight() + "\nгрузоподъёмность - " + capacityBody + " тонн\n"+
+                super.getDriver() + "\n" + super.getEngine();
     }
 }

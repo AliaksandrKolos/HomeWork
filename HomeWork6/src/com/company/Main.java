@@ -11,9 +11,18 @@ public class Main {
         Driver driver = new Driver("Kolos A.D.", 5);
         Engine engine = new Engine("General Motors", 658);
 
-        Car car1 = new Car("Audi", "Е",2000, driver, engine);
-        Car car2 = new SportCar("Audi", "Е",2000, driver, engine, 326);
-        Car car3 = new Lorry("Kamaz", "Е",2000, driver, engine, 30);
+        Car car1 = new Car("BMW", "Е",2356, driver, engine);
+        SportCar car2 = new SportCar("Audi", "Е",2000, driver, engine, 326);
+        Lorry car3 = new Lorry("Kamaz", "Е",7000, driver, engine, 30);
+
+
+
+        System.out.println(car1);
+        System.out.println();
+        System.out.println(car2);
+        System.out.println();
+        System.out.println(car3);
+
 
 
 
