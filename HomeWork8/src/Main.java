@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -5,8 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int action;
-        Reader[] readers = new Reader[10];
-
+        List<Reader> readers = new ArrayList<>(10);
 
         do {
             System.out.println("1 -- Добавить нового читателя");
@@ -20,33 +21,26 @@ public class Main {
 
             switch (action) {
                 case (1): {
-                    boolean isFull = true;
-                    for (int i = 0; i < readers.length - 1; i++) {
-                        if (readers[i] == null) {
-                            System.out.println("Введите ФИО");
-                            scan.nextLine();
-                            String fullName = scan.nextLine();
-                            System.out.println("Введите номер читательского билета");
-                            int numberTicket = scan.nextInt();
-                            System.out.println("Введите факультет");
-                            scan.nextLine();
-                            String faculty = scan.nextLine();
-                            System.out.println("Введите дату рождения");
-                            String dateBirthday = scan.nextLine();
-                            System.out.println("Введите номер телефона");
-                            String numberPhone = scan.nextLine();
+                    if (readers.size() < 10) {
+                        System.out.println("Введите ФИО");
+                        scan.nextLine();
+                        String fullName = scan.nextLine();
+                        System.out.println("Введите номер читательского билета");
+                        int numberTicket = scan.nextInt();
+                        System.out.println("Введите факультет");
+                        scan.nextLine();
+                        String faculty = scan.nextLine();
+                        System.out.println("Введите дату рождения");
+                        String dateBirthday = scan.nextLine();
+                        System.out.println("Введите номер телефона");
+                        String numberPhone = scan.nextLine();
 
-                            readers[i] = new Reader(fullName, numberTicket, faculty, dateBirthday, numberPhone);
+                        readers.add(new Reader(fullName, numberTicket, faculty, dateBirthday, numberPhone));
 
-                            isFull = false;
-                            break;
-                        }
-                    }
-
-                    if (isFull) {
+                    }else
                         System.out.println("Количество читателей уже максимально");
-                    }
                     break;
+
                 }
 
 
@@ -60,9 +54,9 @@ public class Main {
                     int number = scan.nextInt();
 
                     boolean found = false;
-                    for (int i = 0; i < readers.length - 1; i++) {
-                        if (readers[i] != null && readers[i].numberTicket == number) {
-                            readers[i].takeBook(new Book(nameBook, authorName));
+                    for (int i = 0; i < 10; i++) {
+                        if (readers.get(i).numberTicket == number) {
+                            readers.get(i).takeBook(new Book(nameBook, authorName));
                             found = true;
                             break;
                         }
@@ -82,9 +76,10 @@ public class Main {
                     int number = scan.nextInt();
                     boolean found = false;
 
-                    for (int i = 0; i < readers.length - 1; i++) {
-                        if (readers[i] != null && readers[i].numberTicket == number) {
-                            readers[i].returnBook(nameBook);
+
+                    for (int i = 0; i < 10; i++) {
+                        if (readers.get(i).numberTicket == number) {
+                            readers.get(i).returnBook(nameBook);
                             found = true;
                             break;
                         }
@@ -102,9 +97,9 @@ public class Main {
                     int number = scan.nextInt();
                     scan.nextLine();
                     boolean found = false;
-                    for (int i = 0; i < readers.length - 1; i++) {
-                        if (readers[i] != null && readers[i].numberTicket == number) {
-                            readers[i].printStatus();
+                    for (int i = 0; i < 10; i++) {
+                        if (readers.get(i).numberTicket == number) {
+                            readers.get(i).printStatus();
                             found = true;
                             break;
                         }
